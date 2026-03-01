@@ -3,18 +3,10 @@ using namespace std;
 
 main()
 {
-    int num;
-    int sum = 0;
-    cout << "Enter 5 numbers:" << endl;
-    cin >> num;
-    sum = sum + num;
-    cin >> num;
-    sum = sum + num;
-    cin >> num;
-    sum = sum + num;
-    cin >> num;
-    sum = sum + num;
-    cin >> num;
-    sum = sum + num;
-    cout << "Sum = " << sum << endl;
+    int hours;
+    cout << "Enter Hours: ";
+    cin >> hours;
+    int seconds;
+    seconds = hours * 60 * 60;
+    cout << hours << " is equivalent to " << seconds << "seconds";
 }
