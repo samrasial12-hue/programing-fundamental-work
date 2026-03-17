@@ -1,19 +1,18 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
+
 main()
 {
-    int bill=0,dis=0;
-    cout<<"Enter your bill:";
-    cin>>bill;
-    if (bill<=5000)
+    int sum=0,num;
+    for(int i=1;i>=0;i++)
     {
-        dis=(bill*5)/100;
-    bill=bill-dis;
-    cout <<"your discounted bill is:"<<bill;
+        cout<<"Enter Number: ";
+        cin>>num;
+        if (num<0)
+        {
+            break;
+        }
+        sum=sum+num;
     }
-    else{
-        dis=(bill*10)/100;
-        bill=bill-dis;
-        cout<<"your discounted bill is:"<<bill;
-    }
-    }
+    cout<<"Total Sum is: "<<sum;
+}

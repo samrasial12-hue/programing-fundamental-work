@@ -8,8 +8,8 @@ main()
     cin>>n;
     while(n>0)
     {
+        count=count+(n%10);
         n=n/10;
-        count=count+1;
     }
     cout<<"Total Numbers Of Digits is: "<<count;
 }

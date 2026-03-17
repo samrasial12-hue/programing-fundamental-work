@@ -1,18 +1,11 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-
 main()
 {
-    int number1, number2;
-    cout << "Please Enter the number: ";
-    cin >> number1;
-    cout << "Please Enter the second number: ";
-    cin >> number2;
-
-    if(number1 < number2 ){
-        cout << "Number " << number2 << " is greater than " << number1;
+    int sum=0;
+    for(int i=1;i<=100;i++)
+    {
+        sum=sum+i;
     }
-    else{
-        cout << "Number " << number1 << " is greater than " << number2;
-    }
+      cout<<sum;
 }

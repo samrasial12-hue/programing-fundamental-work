@@ -1,18 +1,14 @@
 #include <iostream>
 using namespace std;
-
-main() {
-    string word1, word2;
-    cout << "Enter the first word: ";
-    cin >> word1;
-    cout << "Enter the second word: ";
-    cin >> word2;
-
-    if (word1 == word2) {
-        cout << "yes, the words are same";
+main()
+{
+    for(int i=5;i<=5;i++)
+    {
+        for(int j=1;j<=10;j++)
+        {
+            int k;
+            k=i*j;
+            cout<<i<<" x "<<j<<" = "<<k<<endl;
+        }
     }
-    else {
-        cout << "No, the words are different";
-    }
-    
 }

@@ -1,19 +1,21 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-main()
-{
-    int salary=10000;
-    int laptopprice=50000;
-    int advsalarypercent=50;
 
-    int month=6;
-    int totaladvsalary=(salary*50/100)*month;
-
-    if(totaladvsalary>=laptopprice)
-    {cout<<"You can purchase a laptop";}
-
-    if(totaladvsalary<laptopprice)
-    {int reqmonth;
-    reqmonth=laptopprice/(salary*50/100);
-    cout<<"Months required to buy laptop: "<<reqmonth;}
+int main(){
+    int a, b, x, y;
+    cout << "Enter First Number: ";
+    cin >> a;
+    cout << "Enter Second Number: ";
+    cin >> b;
+    x = a;
+    y = b;
+    while(a != b)
+    {
+        if(a > b)
+        {a = a - b;}
+        else
+        {b = b - a;}
+    }
+    cout << "HCF: " << a << endl;
+    cout << "LCM: " << (x * y) / a;
 }
