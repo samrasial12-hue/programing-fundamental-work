@@ -1,15 +1,16 @@
 #include <iostream>
 using namespace std;
 
-main() 
+main()
 {
-    int minutes;
-    int frame;
-    int total;
-    cout << "Number of minutes : ";
-    cin >> minutes;
-    cout << "Frames per second : ";
-    cin >> frame;
-    total = minutes * 60 * frame;
-    cout << "Total number of frames = " << total;
+    int n, n1 = 0, n2 = 1, n3;
+    cout << "Enter the length of Fibonacci number: ";
+    cin >> n;
+    for (int i = 1; i <= n; i++)
+    {
+        cout << n1 << " ";
+        n3 = n1 + n2;
+        n1 = n2;
+        n2 = n3;
+    }
 }

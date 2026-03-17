@@ -1,26 +1,20 @@
 #include <iostream>
 using namespace std;
 
-main()
+int main()
 {
-    float vegPrice;
-    float fruitPrice;
-    int vegKg;
-    int fruitKg;
-    cout << "Enter vegetable price per kg (coins): ";
-    float vegprice;
-    cin >> vegPrice;
-    cout << "Enter fruit price per kg (coins): ";
-    float fruitprice;
-    cin >> fruitPrice;
-    cout << "Enter total kg of vegetables: ";
-    float kgveg;
-    cin >> vegKg;
-    cout << "Enter total kg of fruits: ";
-    float kgfruit;
-    cin >> fruitKg;
-    float totalcoins;
-    float totalCoins = (vegPrice * vegKg) + (fruitPrice * fruitKg);
-    float totalRupees = totalCoins / 1.94;
-    cout << "Total earnings in Rupees = " << totalRupees << endl;
+    int num,digit,count=0;
+    cout<<"Enter Numbers: ";
+    cin>>num;
+    cout<<"Enter Digit: ";
+    cin>>digit;
+    for(int i=num;i>0;i=i/10)
+    {
+        int num2=i%10;
+        if (num2==digit)
+        {
+            count=count+1;
+        }
+    }
+    cout<<"Frequency of "<<digit<<" in "<<num<<" is "<<count;
 }
