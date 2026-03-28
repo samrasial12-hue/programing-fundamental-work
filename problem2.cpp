@@ -1,17 +1,16 @@
 #include <iostream>
 using namespace std;
 
-main()
-{
-    int speed;
-    cout << "Enter the speed of the car : ";
-    cin >> speed;
-    if (speed > 100)
-    {
-        cout << "you will be challan";
-    }
-    else
-    {
-        cout << "perfect! You are going good";
-    }
+main(){
+  int n; cin>> n;
+  int numbers[n];
+  int even=0;
+ 
+  for (int i=0;i<n;i++){
+    cin>> numbers[i];
+ if(numbers[i]%2 ==0){
+   even++;
+ }
+}
+cout<<"Even: "<<even;
 }

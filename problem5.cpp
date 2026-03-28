@@ -1,36 +1,29 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-
 main()
 {
-    int speed;
-    cout << "speed : ";
-    cin >> speed;
+    int element;
+    char letter;
+    int count=0;
+    cout<<"Enter the number of customers : ";
+    cin >> element;
+    cout<<"Enter the names of "<<element<<" customers: "<<endl;
+    string a[element];
+    for(int i=0;i<element;i++)
+    {
+        cin>>a[i];
+    }
+    cout<<"Enter a letter to check : ";
+    cin >> letter;
+    for(int j=0; j< element ;j++)
+    {
+        if(a[j][0] == letter)
+        {
+           count=count+1;
+       
+        }
+    
+    }
+    cout<<"Total name starting with '"<<letter<<"' : "<<count;
 
-    if (speed < 10)
-    {
-        cout << "slow" << endl;
-    }
-    if (speed >= 10 )
-    if(speed < 50)
-    {
-        cout << "average" << endl;
-    }
-    if (speed > 50)
-      if(speed < 150)
-    {
-        cout << "fast" << endl;
-    }
-
-if (speed > 150) 
-    if (speed < 1000) 
-    {
-        cout << "ultra fast" << endl;
-    }
-    else if (speed > 1000) 
-    {
-        cout << "Extremely fast" << endl;
-    }
 }
-
-

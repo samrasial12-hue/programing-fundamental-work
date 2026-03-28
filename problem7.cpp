@@ -1,27 +1,14 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-int main() {
-    int holidays, workingday, totalplaytime, difference, hours, minutes;
-    cout << "Holidays: ";
-    cin >> holidays;
-    workingday = 365 - holidays;
-    totalplaytime = (workingday * 63) + (holidays * 127);
-    if (totalplaytime <= 30000)
-     {
-        difference = 30000 - totalplaytime;
-        hours = difference / 60;
-        minutes = difference % 60;
-        cout << "Tom sleeps well" << endl;
-        cout << hours << " hours and " << minutes << " minutes less for play";
-    }
-    else 
+main()
+{
+    string productNames[4] = {"Apple","Banana","Orange","Mango"};
+    float prices[4] = {0.5,0.3,0.8,1.2};
+    int quantity[4] = {50,100,30,20};
+    for(int i=0;i<4;i++)
     {
-        difference = totalplaytime - 30000;
-        hours = difference / 60;
-        minutes = difference % 60;
-        cout << "Tom will run away" << endl;
-        cout << hours << " hours and " << minutes << " minutes more for play";
+        float total = prices[i]*quantity[i];
+        cout<<productNames[i]<<": $"<<prices[i]<<", "<<quantity[i]<<" in stock, Total value: $"<<total<<endl;
     }
-    
 }
