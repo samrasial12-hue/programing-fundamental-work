@@ -1,68 +1,100 @@
-
 #include <iostream>
 using namespace std;
+
 main()
 {
-int pin,currentBalance=220,afterDeposit,afterWithdraw,choice;
-for(int i=1;i<=3;i+=1)
-{
-    cout<<"Enter ATM PIN: ";
-    cin>>pin;
-    if(pin==1234)
+    string username[3], password;
+    bool login = false;
+
+    string studentName[3];
+    int studentAge[3];
+    string courseName[3];
+
+    int studentCount = 0, courseCount = 0;
+    int choice;
+
+    for (int i = 0; i < 3; i++)
     {
-        cout<<"Login Successful \n\n";
-        break;
-    }
-    else
-    {
-        if(i==3)
+        cout << " Enter username: ";
+        cin >> username[i];
+        cout << " Enter password: ";
+        cin >> password;
+
+        if (username[i] == "admin" && password == "1234")
         {
-            cout<<"Too Many Wrong Attempts. Program End.\n\n";
-            return 0;
+            cout << " Login successfully " << endl;
+            login = true;
+            break;
         }
-        cout<<"Wrong PIN \n";
+        else
+        {  cout << " Wrong password " << endl; }
     }
+    if (!login)
+    {  cout << " Too many attempts. Program Ends " << endl;  }
 
-}
-for(int i=1;i<=4;i+=1)
-{
-    cout<<"-------ATM Menu--------\n";
-    cout<<"1- Check Balance \n";
-    cout<<"2- Deposit Money \n";
-    cout<<"3- Withdraw Money \n";
-    cout<<"4- Exit \n\n";
-    cout<<"Enter Choice: ";
-    cin>>choice;
+    while (true)
+    {
+        cout << " \n---- University Management System ---- " << endl;
+        cout << " 1. Add Student " << endl;
+        cout << " 2. View Students " << endl;
+        cout << " 3. Add Course " << endl;
+        cout << " 4. View Courses " << endl;
+        cout << " 5. Exit " << endl;
+        cout << " Enter Choice: ";
+        cin >> choice;
 
-if(choice==1)
-{
-    cout<<"Your Current Balance is: "<<currentBalance<<"\n\n";
-}
-else if(choice==2)
-{
-    int depositMoney;
-    cout<<"Enter Amount to Deposit: ";
-    cin>>depositMoney;
-    afterDeposit=depositMoney+currentBalance;
-    cout<<"Your Total Amount is: "<<afterDeposit<<"\n\n";
-}
-else if(choice==3)
-{
-    int withdrawMoney;
-    cout<<"Enter Amount to Withdraw: ";
-    cin>>withdrawMoney;
-    afterWithdraw=afterDeposit-withdrawMoney;
-    cout<<"Your Total Amount is: "<<afterWithdraw<<"\n\n";
-}
-else if(choice==4)
-{
-    cout<<"Program Exit\n\n";
-    break;
-}    
-else 
-{
-    cout<<"invalid Choice \n\n";
-    break;
-}
-}
+        if (choice == 1)
+        {
+            cout<<" Enter student count : ";
+            cin>>studentCount;
+            for( int i =0; i < studentCount ; i++ )
+            {
+                cout << " Enter Student Name: ";
+                cin >> studentName[i];
+                cout << " Enter Student Age: ";
+                cin >> studentAge[i];
+                cout << " Student Added Successfully " << endl;
+            }
+        }
+        else if (choice == 2)
+        {
+            if (studentCount == 0)
+            {  cout << " No Student Record Found <<endl";  }
+            else
+            {
+                for (int i = 0; i < studentCount; i++)
+                {
+                    cout<<" Student " << i + 1 <<" : "<<studentName[i] <<endl;
+                    cout<<" Age : " <<studentAge[i] <<endl;
+                }
+            }
+        }
+        else if (choice == 3)
+        {
+            cout<<" Enter course count : ";
+            cin>>courseCount;
+            for( int i =0; i < courseCount ; i++)
+            {
+                cout<< " Enter Course Name: ";
+                cin>>courseName[i];
+                cout<<" Course Added Successfully " <<endl;
+            }
+        }
+        else if (choice == 4)
+        {
+            if (courseCount == 0)
+            {   cout<<" No Courses Available " << endl;  }
+            else
+            {
+                for (int i = 0; i < courseCount; i++)
+                {
+                    cout<<" Course " << i + 1 << " : " << courseName[i] << endl;
+                }
+            }
+        }
+        else if (choice == 5)
+        {  cout << " Program Exit " << endl;  break; }
+        else
+        {   cout << " Invalid Choice " << endl;  }
+    }
 }

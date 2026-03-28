@@ -1,10 +1,25 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 main()
 {
-    for(int i=1;i<=10;i++)
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    cout << "Shifted String ";
+    for(int i = 0; str[i] != '\0'; i++)
     {
-        cout<<i<<endl;
+        char ch = str[i];   
+        int asci = ch;     
+
+        if(ch == 'z')
+        {
+            ch = 'a';
+        }
+        else
+        {
+            ch = asci + 1;   
+        }
+        cout << ch;
     }
 }

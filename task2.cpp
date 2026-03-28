@@ -1,16 +1,16 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 main()
 {
-    int n, n1 = 0, n2 = 1, n3;
-    cout << "Enter the length of Fibonacci number: ";
-    cin >> n;
-    for (int i = 1; i <= n; i++)
-    {
-        cout << n1 << " ";
-        n3 = n1 + n2;
-        n1 = n2;
-        n2 = n3;
-    }
+    int numbers[5];
+
+    numbers[0] = 2;
+    numbers[1] = 3;
+    numbers[2] = 6;
+    numbers[3] = 37;
+    numbers[4] = 25;
+
+    cout << " The 2nd element in the array is: " << numbers[1] << endl;
+    cout << " The 4th element in the array is: " << numbers[3] << endl;
 }

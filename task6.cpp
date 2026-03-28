@@ -1,14 +1,18 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 main()
 {
-    int multiple;
-    int table = 5;
+    int sum =0;
+    float avrg =0;
+    int number[5] = {1, 2, 3, 4, 5 };
 
-    for (int num = 1; num <= 10; num = num + 1)
+    for( int count = 0; count < 5; count++ )
     {
-        multiple = table * num;
-        cout << table << " * " << num << " = " << multiple << endl;
+        sum = sum + number[count];
     }
+
+    avrg = sum / 5;
+    cout<<" Sum : " <<sum <<endl;
+    cout<<" Average : " <<avrg <<endl;
 }

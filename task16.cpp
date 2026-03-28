@@ -1,15 +1,24 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 int main()
 {
-    int population;
-    cout << "Enter the current world population: ";
-    cin >> population;
-    int birthrate;
-    cout << "Enter the monthly birthrate (number of births per month): ";
-    cin >> birthrate;
-    int futurepopulation;
-    futurepopulation = population + birthrate * 360;
-    cout << "population in three decades will be: " << futurepopulation;
+    char a[100];
+    char result[200] = "Something ";
+    cout << "Enter the argument 'a': ";
+    cin.getline(a, 100);
+    int i = 0;
+    while(result[i] != '\0')
+    {
+        i++;
+    }
+    int j = 0;
+    while(a[j] != '\0')
+    {
+        result[i] = a[j];
+        i++;
+        j++;
+    }
+    result[i] = '\0';
+    cout << "Result: " << result << endl;
 }

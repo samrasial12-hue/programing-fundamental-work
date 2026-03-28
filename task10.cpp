@@ -1,34 +1,20 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-int main()
+
+main()
 {
-     cout<<"Multiplication Table of 24"<<endl;
-     for(int i=24;i<25;i=i+1)
+    string name, res = "";
+    cout<<" Enter the arrgument : ";
+    getline( cin, name );
+
+    for( int i =0; name[i] != '\0'; i++ )
     {
-        for(int j=1;j<=10;j+=1)
-      {
-       int k=i*j;
-        cout<<i<<"x"<<j<<"="<<k<<endl;
-      }
-    }
-    cout<<"\n";
-    cout<<"Multiplication Table of 50"<<endl;
-    for(int i=50;i<51;i+=1)
-    {
-        for(int j=1;j<=10;j+=1)
+        if( name[i] != 'a' && name[i] != 'e' && name[i] != 'i' && name[i] != 'o' && name[i] != 'u' &&
+            name[i] != 'A' && name[i] != 'E' && name[i] != 'I' && name[i] != 'O' && name[i] != 'U' )
         {
-            int k=i*j;
-            cout<<i<<"x"<<j<<"="<<k<<endl;
+            res += name[i];
         }
     }
-    cout<<"\n";
-    cout<<"Multiplication Table of 29"<<endl;
-    for(int i=29;i<30;i+=1)
-    {
-        for(int j=1;j<=10;j+=1)
-        {
-            int k=i*j;
-            cout<<i<<"x"<<j<<"="<<k<<endl;
-        }
-    }
+    cout<<" String with vowels removed : " <<res;
+
 }

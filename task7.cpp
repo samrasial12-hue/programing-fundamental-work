@@ -1,16 +1,31 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 main()
 {
-    int num;
-    cout<<"Enter a Positive Number: ";
-    cin>>num;
-    while(num<=0)
+    string word;
+    char letter;
+    bool isFound = false;
+    
+    cout << " Enter a Word: ";
+    cin >> word;
+
+    cout << " Enter the character you want to find: ";
+    cin >> letter;
+
+    for(int i = 0; word[i] != '\0'; i = i + 1)
     {
-        cout<<"Error: "<<num<<" is not a Positive Number."<<endl;
-        cout<<"Please enter a Positive Number: "<<endl;
-        cin>>num;
+        if(word[i] == letter)
+        {
+            isFound = true;
+        }
     }
-    cout<<"Program ends";
+    if(isFound)
+    {
+        cout << letter << " is found in " << word;
+    }
+    else 
+    {
+        cout << letter << " is not found in " << word;
+    }
 }

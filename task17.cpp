@@ -1,12 +1,37 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-main()
+int main()
 {
-    cout << " Enter the polygon sides = ";
-    int sides;
-    cin >> sides;
-    int angle;
-    angle = (sides - 2) * 180;
-    cout << " sum of angle is " << angle << " degree ";
+    int arr[100], n;
+    bool isSpecial = true;
+
+    cout << "Enter the size of the array: ";
+    cin >> n;
+
+    cout << "Enter " << n << " elements of the array: " << endl;
+    for(int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    for(int i = 0; i < n; i++)
+    {
+        if(i % 2 == 0 && arr[i] % 2 != 0)
+        {
+            isSpecial = false;
+        }
+        if(i % 2 != 0 && arr[i] % 2 == 0)
+        {
+            isSpecial = false;
+        }
+    }
+    if(isSpecial)
+    {
+        cout << "The array is special ";
+    }   
+    else
+    {
+        cout << "The array is not spepcial";
+    }
 }

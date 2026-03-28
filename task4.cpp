@@ -1,13 +1,17 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 main()
 {
-    char n='y';
-    while(n=='y')
+    int number[5];
+
+    for( int count = 0; count < 5; count++ )
     {
-        cout<<"I am Happy "<<endl;
-        cout<<"Press y to continue or any to exit"<<endl;
-        cin>>n;
+        cout<<" Enter a number : ";
+        cin>>number[count];
     }
+
+    cout<<" The 1st element in array is : " <<number[0] <<endl;
+    cout<<" The last element in array is : " <<number[4] <<endl;
+    
 }
