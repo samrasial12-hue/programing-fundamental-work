@@ -1,0 +1,264 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+// ============================================
+// Agricultural Business Management System
+// ============================================
+
+int main()
+{
+    // ===== ARRAY SIZE VARIABLE =====
+    const int size = 50;
+
+    // ===== DATA ARRAYS =====
+    string cropName[size];
+    int cropQuantity[size];
+    int cropPrice[size];
+    int cropCount = 0;
+
+    string workerName[size];
+    string workerTask[size];
+    int workerCount = 0;
+
+    string fertilizerName[size];
+    int fertilizerStock[size];
+    int fertilizerCount = 0;
+
+    string history[200];
+    int historyCount = 0;
+
+    int choice;
+
+    // ===== MAIN LOOP =====
+    while(true)
+    {
+        system("cls");
+
+        cout<<"=====================================\n";
+        cout<<" AGRICULTURAL BUSINESS MANAGEMENT\n";
+        cout<<"=====================================\n";
+
+        cout<<"1. Add Crop\n";
+        cout<<"2. View Crops\n";
+        cout<<"3. Update Crop\n";
+        cout<<"4. Delete Crop\n";
+        cout<<"5. Add Worker\n";
+        cout<<"6. View Workers\n";
+        cout<<"7. Assign Worker Task\n";
+        cout<<"8. Add Fertilizer\n";
+        cout<<"9. View Fertilizer\n";
+        cout<<"10. Record Sale\n";
+        cout<<"11. Record Expense\n";
+        cout<<"12. View History\n";
+        cout<<"13. Exit\n";
+
+        cout<<"Enter Choice: ";
+        cin>>choice;
+        cin.ignore();
+
+        // ===== ADD CROP =====
+        if(choice==1)
+        {
+            if(cropCount >= size)
+            {
+                cout<<"Storage Full!\n";
+            }
+            else
+            {
+                cout<<"Enter Crop Name: ";
+                getline(cin,cropName[cropCount]);
+
+                cout<<"Enter Quantity: ";
+                cin>>cropQuantity[cropCount];
+
+                cout<<"Enter Price: ";
+                cin>>cropPrice[cropCount];
+                cin.ignore();
+
+                history[historyCount++] =
+                "Crop Added: "+cropName[cropCount];
+
+                cropCount++;
+            }
+        }
+
+        // ===== VIEW CROPS =====
+        else if(choice==2)
+        {
+            for(int i=0;i<cropCount;i++)
+            {
+                cout<<i<<" "
+                    <<cropName[i]
+                    <<" Qty:"<<cropQuantity[i]
+                    <<" Price:"<<cropPrice[i]<<endl;
+            }
+            system("pause");
+        }
+
+        // ===== UPDATE CROP =====
+        else if(choice==3)
+        {
+            int index;
+            cout<<"Enter Index: ";
+            cin>>index;
+
+            if(index>=0 && index<cropCount)
+            {
+                cout<<"New Quantity: ";
+                cin>>cropQuantity[index];
+
+                cout<<"New Price: ";
+                cin>>cropPrice[index];
+                cin.ignore();
+
+                history[historyCount++] =
+                "Crop Updated: "+cropName[index];
+            }
+            system("pause");
+        }
+
+        // ===== DELETE CROP =====
+        else if(choice==4)
+        {
+            int index;
+            cout<<"Enter Index: ";
+            cin>>index;
+
+            if(index>=0 && index<cropCount)
+            {
+                history[historyCount++] =
+                "Crop Deleted: "+cropName[index];
+
+                for(int i=index;i<cropCount-1;i++)
+                {
+                    cropName[i]=cropName[i+1];
+                    cropQuantity[i]=cropQuantity[i+1];
+                    cropPrice[i]=cropPrice[i+1];
+                }
+                cropCount--;
+            }
+            system("pause");
+        }
+
+        // ===== ADD WORKER =====
+        else if(choice==5)
+        {
+            if(workerCount>=size)
+            {
+                cout<<"Worker Storage Full!\n";
+            }
+            else
+            {
+                cout<<"Enter Worker Name: ";
+                getline(cin,workerName[workerCount]);
+
+                workerTask[workerCount]="Not Assigned";
+
+                history[historyCount++] =
+                "Worker Added: "+workerName[workerCount];
+
+                workerCount++;
+            }
+        }
+
+        // ===== VIEW WORKERS =====
+        else if(choice==6)
+        {
+            for(int i=0;i<workerCount;i++)
+            {
+                cout<<i<<" "
+                    <<workerName[i]
+                    <<" Task:"<<workerTask[i]<<endl;
+            }
+            system("pause");
+        }
+
+        // ===== ASSIGN TASK =====
+        else if(choice==7)
+        {
+            int index;
+            cout<<"Enter Worker Index: ";
+            cin>>index;
+            cin.ignore();
+
+            if(index>=0 && index<workerCount)
+            {
+                cout<<"Enter Task: ";
+                getline(cin,workerTask[index]);
+
+                history[historyCount++] =
+                "Task Assigned to "+workerName[index];
+            }
+        }
+
+        // ===== ADD FERTILIZER =====
+        else if(choice==8)
+        {
+            if(fertilizerCount>=size)
+            {
+                cout<<"Fertilizer Storage Full!\n";
+            }
+            else
+            {
+                cout<<"Enter Fertilizer Name: ";
+                getline(cin,fertilizerName[fertilizerCount]);
+
+                cout<<"Enter Stock: ";
+                cin>>fertilizerStock[fertilizerCount];
+                cin.ignore();
+
+                history[historyCount++] =
+                "Fertilizer Added: "+fertilizerName[fertilizerCount];
+
+                fertilizerCount++;
+            }
+        }
+
+        // ===== VIEW FERTILIZER =====
+        else if(choice==9)
+        {
+            for(int i=0;i<fertilizerCount;i++)
+            {
+                cout<<fertilizerName[i]
+                    <<" Stock:"<<fertilizerStock[i]<<endl;
+            }
+            system("pause");
+        }
+
+        // ===== RECORD SALE =====
+        else if(choice==10)
+        {
+            history[historyCount++]="Sale Recorded";
+            cout<<"Sale Recorded\n";
+            system("pause");
+        }
+
+        // ===== RECORD EXPENSE =====
+        else if(choice==11)
+        {
+            history[historyCount++]="Expense Recorded";
+            cout<<"Expense Recorded\n";
+            system("pause");
+        }
+
+        // ===== VIEW HISTORY =====
+        else if(choice==12)
+        {
+            for(int i=0;i<historyCount;i++)
+            {
+                cout<<history[i]<<endl;
+            }
+            system("pause");
+        }
+
+        // ===== EXIT =====
+        else if(choice==13)
+        {
+            cout<<"Program Closed\n";
+            break;
+        }
+    }
+
+    return 0;
+}
