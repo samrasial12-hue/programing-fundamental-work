@@ -1,0 +1,231 @@
+#include <iostream>
+using namespace std;
+
+// ================= DATA ARRAYS =================
+string cropName[100];
+int cropQuantity[100];
+float cropPrice[100];
+string historyLog[200];
+
+int cropCount = 0;
+int historyCount = 0;
+
+// ================= HISTORY FUNCTION =================
+void addHistory(string action)
+{
+    historyLog[historyCount] = action;
+    historyCount++;
+}
+
+// ================= ADD CROP =================
+void addCrop()
+{
+    cout << "\nEnter Crop Name: ";
+    cin >> cropName[cropCount];
+
+    cout << "Enter Quantity (kg): ";
+    cin >> cropQuantity[cropCount];
+
+    cout << "Enter Price: ";
+    cin >> cropPrice[cropCount];
+
+    addHistory("Crop Added: " + cropName[cropCount]);
+
+    cropCount++;
+    cout << "Crop Added Successfully!\n";
+}
+
+// ================= VIEW CROPS =================
+void viewCrops()
+{
+    cout << "\n--- Crop List ---\n";
+
+    for(int i=0;i<cropCount;i++)
+    {
+        cout << i+1 << ". "
+             << cropName[i] << " | Qty: "
+             << cropQuantity[i] << " | Price: "
+             << cropPrice[i] << endl;
+    }
+}
+
+// ================= UPDATE CROP =================
+void updateCrop()
+{
+    viewCrops();
+    int id;
+
+    cout << "Enter crop number to update: ";
+    cin >> id;
+    id--;
+
+    cout << "New Name: ";
+    cin >> cropName[id];
+
+    cout << "New Quantity: ";
+    cin >> cropQuantity[id];
+
+    cout << "New Price: ";
+    cin >> cropPrice[id];
+
+    addHistory("Crop Updated");
+
+    cout << "Updated Successfully!\n";
+}
+
+// ================= DELETE CROP =================
+void deleteCrop()
+{
+    viewCrops();
+    int id;
+
+    cout << "Enter crop number to delete: ";
+    cin >> id;
+    id--;
+
+    addHistory("Crop Deleted: " + cropName[id]);
+
+    cropName[id] = "Deleted";
+    cropQuantity[id] = 0;
+    cropPrice[id] = 0;
+
+    cout << "Deleted Successfully!\n";
+}
+
+// ================= SEARCH CROP =================
+void searchCrop()
+{
+    string name;
+    cout << "Enter crop name to search: ";
+    cin >> name;
+
+    for(int i=0;i<cropCount;i++)
+    {
+        if(cropName[i]==name)
+        {
+            cout<<"Found -> "<<cropName[i]
+                <<" Qty:"<<cropQuantity[i]
+                <<" Price:"<<cropPrice[i]<<endl;
+            return;
+        }
+    }
+
+    cout<<"Crop Not Found\n";
+}
+
+// ================= SELL CROP =================
+void sellCrop()
+{
+    viewCrops();
+    int id, qty;
+
+    cout<<"Enter crop number: ";
+    cin>>id;
+    id--;
+
+    cout<<"Enter quantity to sell: ";
+    cin>>qty;
+
+    if(qty <= cropQuantity[id])
+    {
+        cropQuantity[id] -= qty;
+        addHistory("Crop Sold");
+        cout<<"Sale Completed!\n";
+    }
+    else
+        cout<<"Not enough stock!\n";
+}
+
+// ================= VIEW HISTORY =================
+void viewHistory()
+{
+    cout<<"\n--- SYSTEM HISTORY ---\n";
+    for(int i=0;i<historyCount;i++)
+        cout<<historyLog[i]<<endl;
+}
+
+// ================= ADMIN MENU =================
+void adminMenu()
+{
+    int choice;
+
+    do
+    {
+        cout<<"\n===== ADMIN MENU =====\n";
+        cout<<"1 Add Crop\n";
+        cout<<"2 View Crops\n";
+        cout<<"3 Update Crop\n";
+        cout<<"4 Delete Crop\n";
+        cout<<"5 Search Crop\n";
+        cout<<"6 View History\n";
+        cout<<"7 Logout\n";
+        cin>>choice;
+
+        if(choice==1) addCrop();
+        else if(choice==2) viewCrops();
+        else if(choice==3) updateCrop();
+        else if(choice==4) deleteCrop();
+        else if(choice==5) searchCrop();
+        else if(choice==6) viewHistory();
+
+    }while(choice!=7);
+}
+
+// ================= FARMER MENU =================
+void farmerMenu()
+{
+    int choice;
+
+    do
+    {
+        cout<<"\n===== FARMER MENU =====\n";
+        cout<<"1 View Crops\n";
+        cout<<"2 Buy Crop\n";
+        cout<<"3 Search Crop\n";
+        cout<<"4 Exit\n";
+        cin>>choice;
+
+        if(choice==1) viewCrops();
+        else if(choice==2) sellCrop();
+        else if(choice==3) searchCrop();
+
+    }while(choice!=4);
+}
+
+// ================= LOGIN SYSTEM =================
+void loginSystem()
+{
+    int user;
+
+    do
+    {
+        cout<<"\n=== AGRICULTURAL MANAGEMENT SYSTEM ===\n";
+        cout<<"1 Admin Login\n";
+        cout<<"2 Farmer Login\n";
+        cout<<"3 Exit\n";
+        cin>>user;
+
+        if(user==1)
+        {
+            string pass;
+            cout<<"Enter Admin Password: ";
+            cin>>pass;
+
+            if(pass=="admin123")
+                adminMenu();
+            else
+                cout<<"Wrong Password\n";
+        }
+        else if(user==2)
+            farmerMenu();
+
+    }while(user!=3);
+}
+
+// ================= MAIN =================
+int main()
+{
+    loginSystem();
+    cout<<"Program Ended Successfully\n";
+    return 0;
+}
